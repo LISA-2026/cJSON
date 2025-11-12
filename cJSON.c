@@ -608,10 +608,10 @@ static cJSON_bool print_number(const cJSON * const item, printbuffer * const out
     {
         length = sprintf((char*)number_buffer, "null");
     }
-    else if(d == (double)item->valueint)
-    {
-        length = sprintf((char*)number_buffer, "%d", item->valueint);
-    }
+    // else if(d == (double)item->valueint)
+    // {
+    //     length = sprintf((char*)number_buffer, "%d", item->valueint);
+    // }
     else
     {
         /* Try 15 decimal places of precision to avoid nonsignificant nonzero digits */
@@ -2242,8 +2242,8 @@ CJSON_PUBLIC(cJSON*) cJSON_AddArrayToObject(cJSON * const object, const char * c
 
 CJSON_PUBLIC(cJSON *) cJSON_DetachItemViaPointer(cJSON *parent, cJSON * const item)
 {
-   // if ((parent == NULL) || (item == NULL) || (item != parent->child && item->prev == NULL))
-    if ((parent == NULL) || (parent->child == NULL) || (item == NULL) || (item->prev == NULL))
+    if ((parent == NULL) || (item == NULL) || (item != parent->child && item->prev == NULL))
+    //if ((parent == NULL) || (parent->child == NULL) || (item == NULL) || (item->prev == NULL))
     {
         return NULL;
     }
