@@ -2371,10 +2371,7 @@ CJSON_PUBLIC(cJSON_bool) cJSON_ReplaceItemViaPointer(cJSON * const parent, cJSON
     }
     if (parent->child == item)
     {
-        // if (parent->child->prev == parent->child)
-        // {
-        //     replacement->prev = replacement;
-        // }
+    
         parent->child = replacement;
     }
     else
@@ -2386,10 +2383,7 @@ CJSON_PUBLIC(cJSON_bool) cJSON_ReplaceItemViaPointer(cJSON * const parent, cJSON
         {
             replacement->prev->next = replacement;
         }
-        // if (replacement->next == NULL)
-        // {
-        //     parent->child->prev = replacement;
-        // }
+    
     }
 
     item->next = NULL;
